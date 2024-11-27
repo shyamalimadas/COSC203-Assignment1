@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Birds of Aotearoa</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <!-- Bootstrap CSS -->
+        <script src="bird.js" defer></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    </head>
+<body>
+    <header>
+        <div class = "title">
+        <img src="data/icon.png" alt="Birds of Aotearoa logo" class="logo" id="secret-button">
+        <h1>Birds of Aotearoa</h1>
+        </div>
+    </header>
+        <!--Sidebar-->
+        <div class="row">
+            <div class="col-3">
+                <div class="search-panel">
+            <!-- Search input -->
+            <h2>Filter Birds</h2>
+            <p>Search</p>
+            <input id="search-bar" class="search-search">
+
+            <!-- Conservation status dropdown select -->
+            <p>Conservation Status</p>
+            <select id="conserv-option" class="search-select">
+                <option value="0">All</option>
+                <option value="1">Not Threatened</option>
+                <option value="2">Naturally Uncommon</option>
+                <option value="3">Relicit</option>
+                <option value="4">Recovering</option>
+                <option value="5">Declining</option>
+                <option value="6">Nationally Increasing</option>
+                <option value="7">Nationally Vulnerable</option>
+                <option value="8">Nationally Endangered</option>
+                <option value="9">Nationally Critical</option>
+                <option value="10">Data Deficient</option>
+            </select>
+
+            
+            <!-- Sort-by dropdown -->
+            <p>Sort by</p>
+            <select id="sort-option" class="search-select">
+                <option value="0">Lightest to heaviest</option>
+                <option value="1">Heaviest to lightest</option>
+                <option value="2">Alphabetical (English)</option>
+                <option value="3">Alphabetical (Maori)</option>
+                <option value="4">Shortest to longest</option>
+                <option value="5">Longest to shortest</option>
+            </select>
+
+            <!-- <div class='min-max-div' id="min-max-weight">
+                <label>
+                    Weight (g):
+                </label>
+                <div class="min-max-input-div">
+                    <div>
+                        <label for="min-weight">Min:</label>
+                        <input class="min-max-input" id="min-weight" type="number">
+                    </div>
+                    <div>
+                        <label for="max-weight">Max:</label>
+                        <input class="min-max-input" id="max-weight" type="number">
+                    </div>
+                </div>
+            </div> -->
+    
+            <!-- <div class='min-max-div' id="min-max-length">
+                <label>
+                    Length (cm):
+                </label>
+                <div class="min-max-input-div">
+                    <div>
+                        <label for="min-length">Min:</label>
+                        <input class="min-max-input" id="min-length" type="number">
+                    </div>
+                    <div>
+                        <label for="max-length">Max:</label>
+                        <input class="min-max-input" id="max-length" type="number">
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- Conservation status dropdown select -->
+            <p>Family Filter</p>
+            <select id="family-option" class="search-select">
+                <option value="0">All</option>
+                <option value="1">Notiomystidae </option>
+                <option value="2">Spheniscidae</option>
+                <option value="3">Petroicidae</option>
+                <option value="4">Recurvirostridae</option>
+                <option value="5">Phalacrocoracidae</option>
+                <option value="6">Strigopidae</option>
+                <option value="7">Columbidae</option>
+                <option value="8">Apterygidae</option>
+                <option value="9">Cuculidae</option>
+                <option value="10">Meliphagidae</option>
+                <option value="11">Psittaculidae</option>
+                <option value="12">Falconidae</option>
+                <option value="13">Callaeidae</option>
+                <option value="14">Halcyonidae</option>
+                <option value="15">Ardeidae</option>
+                <option value="16">Mohouidae</option>
+                <option value ="17">Locustellidae</option>
+                <option value="18">Charadriidae</option>
+                <option value="19">Anatidae</option>
+                <option value="20">Motacillidae</option>
+                <option value="21">Rhipiduridae</option>
+                <option value="22">Acanthisittidae</option>
+                <option value ="23">Rallidae</option>
+                <option value="24">Acanthizidae</option>
+                <option value="25">Strigidae</option>
+                <option value="26">Laridae</option>
+                <option value="27">Zosteropidae</option>
+                <option value="28">Diomedeidae</option>
+                <option value="29">Scolopacidae</option>
+                <option value="30">Haematopodidae</option>
+            </select>
+            
+            
+            <!-- Filter button -->
+            <button id= "filter-button" class="filter-button">FILTER RESULTS</button>
+            <p id="search-results-amount"> 68 results found</p>
+            <hr>
+
+            <!-- Grid for colours of conservation status' -->
+            <h2>Conservation Status</h2>
+            <div class="conservation-status-grid">
+                <div id="con1"></div> <p>Not Threatened</p>
+                <div id="con1"></div> <p>Naturally Uncommon</p>
+                <div id="con2"></div> <p>Relicit</p>
+                <div id="con3"></div> <p>Recovering</p>
+                <div id="con4"></div> <p>Declining</p>
+                <div id="con5"></div> <p>Nationally Increasing</p>
+                <div id="con6"></div> <p>Nationally Vulnerable</p>
+                <div id="con7"></div> <p>Nationally Endangered</p>
+                <div id="con8"></div> <p>Nationally Critical</p>
+                <div id="con9"></div> <p>Data Deficient</p>
+            </div>
+
+            <p id="footnote">Conservation status from <a href="https://www.doc.govt.nz/globalassets/documents/science-and-technical/nztcs36entire.pdf">DOC website</a></p>
+                          </div>
+                    </div>
+        </div>
+        
+        <!--Main content-->
+    <div id="bird-container" class="bird-container">
+                    <!-- Birds will display as cards through JavaScript here.-->
+    </div>
+
+    
+<footer>
+    <p>Data licensed from <a href="https://www.birdsnz.org.nz/">Birds New Zealand</a> for educational use within the University of Otago, Sound for kiwi licensed from <a href="https://www.doc.govt.nz/nature/native-animals/birds/bird-songs-and-calls/"> Department of Conservation</a>
+    , Kiwi icon licensed from <a href="https://www.flaticon.com/free-icon/kiwi_805304?term=kiwi&related_id=805304">Flat Icon</a></p>
+    <!-- Colour scheme picked from <a href="https://coolors.co/202c39-283845-b8b08d-f2d492-f29559">Coolors</a></p>-->
+</footer>
+
+</body>
+
+</html>

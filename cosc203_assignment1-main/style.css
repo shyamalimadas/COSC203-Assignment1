@@ -1,0 +1,381 @@
+
+/* Local Palette */
+:root {
+
+    /* Site Colour Scheme */
+    --metal-dark: #202c39;
+    --metal-light: #283845;
+    --peach: #f2d492;
+    --sage: #b8b08d;
+    --orange: #f29559;
+
+    /* Conservation Status Colours */
+    --Not-Threatened:#02a028;	
+    --Naturally-Uncommon:#649a31;
+    --Relict:#99cb68;
+    --Recovering:#fecc33;
+    --Declining:#fe9a01;
+    --Nationally-Increasing:#c26967;
+    --Nationally-Vulnerable:#9b0000;
+    --Nationally-Endangered:#660032;
+    --Nationally-Critical:#320033;
+    --Extinct: black;
+    --Data-Deficient: black;
+}
+
+/* Font imports for the entire site, with some basic things that stay consistent across the site */
+* {
+    font-family: 'Ibarra Real Nova', serif;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: var(--peach);
+    background-color: var(--metal-light);
+}
+
+body {
+    display: grid;
+    /* grid template for the structure of the website */
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 100px 1fr;
+    min-width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    margin: 0px;
+    padding: 0;
+    background-color: var(--metal-light);
+}
+
+.error {
+    font-size: 30px;
+    /* color: red; */
+    margin-top: 100px;
+}
+
+/* Header */
+
+header {
+    /* height: 80px;
+    border: 0px;
+    margin: 0px;
+    width: 100%; */
+    grid-column-start: 2;
+    /* margin-left: -15px; */
+    background-color: var(--metal-dark);
+}
+
+header > h1 {
+    background-color: var(--metal-dark);
+    text-align: center;
+    /* margin-left: 200px; */
+    font-size: 50px;
+    /* margin-right: 0px; */
+    color: var(--orange);
+
+}
+
+/* the styling for the kiwi icon in the header */
+.title > img, .title > h1 { 
+    display:inline; 
+}
+
+
+
+/* Search Panel */
+
+.search-panel {
+    grid-row: span 3;
+    grid-row-start: 1;
+    height: 95%;
+    width: 200px;
+    background-color: var(--metal-dark);
+    padding: 4px;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    transition: 0.5s;
+
+}
+
+
+
+.search-panel > p {
+    font-size: 14px;
+    background-color: var(--metal-dark);
+    margin-bottom: 2px;
+    margin-top: 2px;
+    margin-left: 4px;
+}
+.search-panel > h2 {
+    font-size: 20px;
+    background-color: var(--metal-dark);
+    margin-bottom: 4px;
+    margin-top: 2px;
+    margin-left: 4px;
+}
+
+.search-search {
+    width: 90%;
+    margin-top: 2px;
+    margin-left: 4px;
+}
+
+.search-select {
+    width: 90%;
+    margin:auto;
+    border-radius: 6px;
+    margin-left: 4px;
+}
+
+option {
+    background-color: var(--metal-dark);
+}
+
+.filter-button {
+    width: 90%;
+    margin-top: 6px;
+    border-radius: 6px;
+    background-color: var(--orange);
+    font-size: 16px;
+    margin-left: 4px;
+}
+
+.conservation-status-grid {
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+    grid-template-areas: repeat(10, "div p");
+    background-color: var(--metal-dark);
+}
+
+.conservation-status-grid > p {
+    font-size: 14px;
+    margin-left: 6px;
+    margin-top: 0px;
+    background-color: var(--metal-dark);
+}
+
+.conservation-status-grid > div {
+    border-radius: 10px;
+    height: 20px;
+    margin-top: 0px;
+}
+
+
+/* using variables to access the colours for the side panel and the cards */
+#con0 {
+    background-color: var(--Not-Threatened);
+}
+#con1 {
+    background-color: var(--Naturally-Uncommon);
+}
+#con2 {
+    background-color: var(--Relict);
+}
+#con3 {
+    background-color: var(--Recovering);
+}
+#con4 {
+    background-color: var(--Declining);
+}
+#con5 {
+    background-color: var(--Nationally-Increasing);
+}
+#con6 {
+    background-color: var(--Nationally-Vulnerable);
+}
+#con7 {
+    background-color: var(--Nationally-Endangered);
+}
+#con8 {
+    background-color: var(--Nationally-Critical);
+}
+#con9 {
+    background-color: var(--Data-Deficient);
+}
+
+
+ /* Bird Cards */
+
+ .bird-container {
+    /* margin-left: 212px; */
+    /* padding: 10px; */
+    height: 100%;
+    font-size: 14px;
+    grid-column-start: 2;
+    grid-row-start: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-bottom: 10%;
+    }
+
+/* the styling for each bird card*/
+.bird-panel {
+    width: 300px;
+    height: 520px;
+    /* flex-basis: 300px; */
+    background-color: var(--metal-dark);
+    border-radius: 10px;
+    position: relative; 
+}
+
+/* individual styling for each bird card image */
+.bird-image {
+    object-fit: cover;
+    object-position: 50% 50%;
+    width: 300px;
+    height: 300px;
+    border-radius: 10px 10px 0 0 ;
+}
+
+/* individual styling for each bird card overlay of shading */
+.shading {
+    background: rgba(0, 0, 0, 0) linear-gradient(to bottom, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .1) 40%, rgba(0, 0, 0, .4) 75%, rgb(0, 0, 0, 0.8) 100%) repeat scroll 0 0;
+    position: relative;
+    margin-top: -304px;
+    height: 310px;
+    width: 300px;
+}
+
+/* styling for the indication of what status the bird is */
+.circle {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--metal-dark);
+    border-radius: 24px;
+    background-color: var(--Declining);
+    position: absolute;
+    margin-top: 276px;
+    margin-left: 240px;
+}
+
+.bird-panel > h3 {
+    background-color: #00000000;
+    margin-left: 15px;
+}
+.bird-panel > p {
+    background-color: #00000000;
+    margin-left: 15px;
+}
+
+.maori-name {
+    margin-top: -55px;
+    margin-bottom: 0px;
+    position: absolute;
+}
+.photographer {
+    margin-top: -25px;
+    position: absolute;
+}
+
+.bird-content {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 0px;
+    display: grid;
+    grid-template-columns: 110px 160px;
+    grid-template-rows: repeat(6, 20px);
+    background-color: #00000000;
+}
+
+.bold {
+    font-weight: bold;
+}
+.bird-content > p {
+    margin: 0px;
+    background-color: #00000000;
+    text-overflow: ellipsis;
+    overflow:hidden;
+    white-space: nowrap;
+}
+
+
+/* Scaling stuff */
+
+@media (min-width:600px) {
+    .material-symbols-outlined {
+        display: none !important;
+    }
+
+    .search-panel {
+        width: 200px !important;
+    }
+}
+
+/* Smaller Screens */
+@media (max-width: 600px) {
+    body {
+        /* background-color: var(--dark-green); */
+        grid-template-columns: 1fr;
+        gap: 0px;
+    }
+
+    .search-panel {
+        grid-row: none;
+        grid-row-start: none;
+        width: 0;
+        transition: 0.5s;
+        padding-left: 0;
+        padding-right: 0;
+    }
+     
+
+    .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48;
+        font-size: 50px !important;
+        position: fixed;
+        bottom:70px;
+        left: 10px;
+        background-color: var(--metal-dark);
+        padding: 5px;
+        border: 2px solid white;
+        border-radius: 32px;
+    } 
+}
+
+@media (max-width: 370px) {
+    header > h1 {
+        font-size: 40px;
+    }
+}
+
+p {
+    margin-top: 0;
+    margin-bottom:0;
+  }
+
+  
+
+/* Footer */
+
+footer {
+    position: fixed; 
+    bottom: 0px;
+    width: 100%;
+    /* height: 100%; */
+    background-color: var(--orange);
+    grid-row-start: 3;
+    grid-column-end: 1;
+
+}
+
+footer p {
+    background-color: var(--orange);
+    font-size: 12px;
+    text-align: center;
+    color: var(--metal-light);
+
+}
+
+footer a {
+    font-size: 12px;
+    background-color: var(--orange);
+}
+
+
